@@ -28,9 +28,9 @@ pipeline {
                 echo 'Starting Ansible deployment...'
 
                 sh '''
-                    ansible-playbook \
-                    -i /root/ansible-tomcat/inventory \
-                    /root/ansible-tomcat/deploy.yml
+                    sudo /usr/bin/ansible-playbook \
+                    -i /opt/ansible-tomcat/inventory \
+                    /opt/ansible-tomcat/deploy.yml
                 '''
             }
         }
