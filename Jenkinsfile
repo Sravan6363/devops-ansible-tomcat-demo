@@ -10,14 +10,36 @@ pipeline {
             }
         }
 
+        stage('Generate Deployment Metadata') {
+            steps {
+                echo 'Generating deployment metadata...'
+
+                sh '''
+                    cat > deployment-info.json <<EOF
+{
+  "buildNumber": "${BUILD_NUMBER}",
+  "jobName": "${JOB_NAME}",
+  "gitCommit": "${GIT_COMMIT}",
+  "gitBranch": "${GIT_BRANCH}",
+  "environment": "DEV",
+  "status": "SUCCESS"
+}
+EOF
+
+                    cat deployment-info.json
+                '''
+            }
+        }
+
         stage('Validate') {
             steps {
-                echo 'Validating deployment files...'
+                echo 'Validating application files...'
 
                 sh '''
                     test -f index.html
                     test -f style.css
                     test -f script.js
+                    test -f deployment-info.json
                     echo "Application files validated successfully."
                 '''
             }
