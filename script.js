@@ -1,11 +1,15 @@
 // =============================================
 // DevOps Deployment Center
-// Frontend Deployment Simulation
+// Dynamic Jenkins Deployment Dashboard
 // =============================================
 
 
 const deploymentStart = Date.now();
 
+
+// =============================================
+// Deployment Events
+// =============================================
 
 const deploymentEvents = [
 
@@ -38,6 +42,129 @@ const deploymentEvents = [
 
 
 // =============================================
+// Load Jenkins Deployment Information
+// =============================================
+
+async function loadDeploymentInfo() {
+
+    try {
+
+        const response =
+            await fetch("deployment-info.json?cache=" + Date.now());
+
+        if (!response.ok) {
+            throw new Error("Deployment metadata not found");
+        }
+
+        const info =
+            await response.json();
+
+
+        // -----------------------------------------
+        // Release Number
+        // -----------------------------------------
+
+        const releaseElements =
+            document.querySelectorAll(
+                '[data-field="release"]'
+            );
+
+        releaseElements.forEach(element => {
+
+            element.textContent =
+                "#" + info.buildNumber;
+
+        });
+
+
+        // -----------------------------------------
+        // Environment
+        // -----------------------------------------
+
+        const environmentElements =
+            document.querySelectorAll(
+                '[data-field="environment"]'
+            );
+
+        environmentElements.forEach(element => {
+
+            element.textContent =
+                info.environment;
+
+        });
+
+
+        // -----------------------------------------
+        // Git Commit
+        // -----------------------------------------
+
+        const commitElements =
+            document.querySelectorAll(
+                '[data-field="commit"]'
+            );
+
+        commitElements.forEach(element => {
+
+            element.textContent =
+                info.gitCommit.substring(0, 8);
+
+        });
+
+
+        // -----------------------------------------
+        // Jenkins Build
+        // -----------------------------------------
+
+        const buildElements =
+            document.querySelectorAll(
+                '[data-field="build"]'
+            );
+
+        buildElements.forEach(element => {
+
+            element.textContent =
+                "#" + info.buildNumber;
+
+        });
+
+
+        // -----------------------------------------
+        // Deployment Status
+        // -----------------------------------------
+
+        const statusElements =
+            document.querySelectorAll(
+                '[data-field="status"]'
+            );
+
+        statusElements.forEach(element => {
+
+            element.textContent =
+                info.status;
+
+        });
+
+
+        console.log(
+            "Deployment information loaded:",
+            info
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unable to load deployment information:",
+            error
+        );
+
+    }
+
+}
+
+
+// =============================================
 // Live Clock
 // =============================================
 
@@ -63,7 +190,6 @@ function updateClock() {
 updateClock();
 
 setInterval(updateClock, 1000);
-
 
 
 // =============================================
@@ -96,7 +222,6 @@ setInterval(
     updateDeploymentRuntime,
     1000
 );
-
 
 
 // =============================================
@@ -138,6 +263,7 @@ function showDeploymentEvents() {
                                 ${event.stage}
                             </strong>
 
+
                             <span>
                                 ${event.message}
                             </span>
@@ -167,7 +293,6 @@ function showDeploymentEvents() {
 }
 
 
-
 // =============================================
 // Application Health
 // =============================================
@@ -195,7 +320,6 @@ function updateHealthStatus() {
 }
 
 
-
 // =============================================
 // Start Dashboard
 // =============================================
@@ -203,6 +327,8 @@ function updateHealthStatus() {
 document.addEventListener(
     "DOMContentLoaded",
     () => {
+
+        loadDeploymentInfo();
 
         updateDeploymentRuntime();
 
