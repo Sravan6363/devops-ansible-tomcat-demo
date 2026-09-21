@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps Deployment Center</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            <span class="logo-icon">⚡</span>
+
+            <div>
+                <h2>DevOps Deployment Center</h2>
+                <p>CI/CD Release Dashboard</p>
+            </div>
+        </div>
+
+        <div class="live-status">
+            <span class="pulse"></span>
+            LIVE ENVIRONMENT
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="tag">
+                    PRODUCTION-STYLE DEPLOYMENT
+                </div>
+
+                <h1>
+                    Deployment
+                    <span>Successful</span>
+                </h1>
+
+                <p>
+                    Your application has successfully travelled through
+                    the CI/CD pipeline and is now running on the target
+                    environment.
+                </p>
+
+            </div>
+
+
+            <div class="success-card">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h3>APPLICATION ONLINE</h3>
+
+                <p>
+                    All deployment stages completed
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PIPELINE -->
+        <section class="pipeline-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-tag">
+                        DELIVERY PIPELINE
+                    </span>
+
+                    <h2>
+                        Application Journey
+                    </h2>
+                </div>
+
+                <div class="pipeline-status">
+                    ● ALL SYSTEMS GO
+                </div>
+
+            </div>
+
+
+            <div class="pipeline">
+
+                <!-- GITHUB -->
+                <div class="pipeline-stage">
+
+                    <div class="stage-icon github">
+                        G
+                    </div>
+
+                    <h3>GitHub</h3>
+
+                    <p>
+                        Source Code
+                    </p>
+
+                    <span class="stage-status">
+                        ✓ COMPLETED
+                    </span>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- JENKINS -->
+                <div class="pipeline-stage">
+
+                    <div class="stage-icon jenkins">
+                        J
+                    </div>
+
+                    <h3>Jenkins</h3>
+
+                    <p>
+                        Build & Test
+                    </p>
+
+                    <span class="stage-status">
+                        ✓ PASSED
+                    </span>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- ANSIBLE -->
+                <div class="pipeline-stage">
+
+                    <div class="stage-icon ansible">
+                        A
+                    </div>
+
+                    <h3>Ansible</h3>
+
+                    <p>
+                        Deployment
+                    </p>
+
+                    <span class="stage-status">
+                        ✓ COMPLETED
+                    </span>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- TOMCAT -->
+                <div class="pipeline-stage">
+
+                    <div class="stage-icon tomcat">
+                        T
+                    </div>
+
+                    <h3>Tomcat</h3>
+
+                    <p>
+                        Application Server
+                    </p>
+
+                    <span class="stage-status">
+                        ✓ RUNNING
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- DEPLOYMENT DETAILS -->
+        <section class="details">
+
+            <div class="info-card">
+
+                <span>
+                    RELEASE
+                </span>
+
+                <strong>
+                    #001
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>
+                    ENVIRONMENT
+                </span>
+
+                <strong>
+                    DEV
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>
+                    VERSION
+                </span>
+
+                <strong>
+                    v1.0.0
+                </strong>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <span>
+                    STATUS
+                </span>
+
+                <strong class="online">
+                    ● ONLINE
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACTIVITY -->
+        <section class="activity-section">
+
+            <div class="activity-header">
+
+                <div>
+                    <span class="section-tag">
+                        DEPLOYMENT ACTIVITY
+                    </span>
+
+                    <h2>
+                        Release Timeline
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div>
+                        <strong>
+                            Source Code Retrieved
+                        </strong>
+
+                        <p>
+                            GitHub repository checkout completed
+                        </p>
+                    </div>
+
+                    <span>
+                        DONE
+                    </span>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div>
+                        <strong>
+                            Build Successful
+                        </strong>
+
+                        <p>
+                            Application build and validation completed
+                        </p>
+                    </div>
+
+                    <span>
+                        PASSED
+                    </span>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div>
+                        <strong>
+                            Deployment Completed
+                        </strong>
+
+                        <p>
+                            Ansible deployed application to Tomcat
+                        </p>
+                    </div>
+
+                    <span>
+                        DONE
+                    </span>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div>
+                        <strong>
+                            Application Online
+                        </strong>
+
+                        <p>
+                            Tomcat is serving the latest release
+                        </p>
+                    </div>
+
+                    <span class="live">
+                        LIVE
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <span>
+                DevOps Deployment Center
+            </span>
+
+            <span id="clock">
+                Loading runtime...
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
