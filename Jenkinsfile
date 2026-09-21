@@ -30,7 +30,8 @@ pipeline {
                 sh '''
                     sudo /usr/bin/ansible-playbook \
                     -i /opt/ansible-tomcat/inventory \
-                    /opt/ansible-tomcat/deploy.yml
+                    /opt/ansible-tomcat/deploy.yml \
+                    -e "app_source=$WORKSPACE"
                 '''
             }
         }
